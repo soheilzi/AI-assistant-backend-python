@@ -8,7 +8,7 @@ import re
 
 def sanitize_message(message):
     # Remove any special characters, limit length, etc.
-    message = re.sub(r'[^\w\s]', '', message)  # Basic sanitization (removes non-word characters)
+    message = re.sub(r'[^\w\s]', ' ', message)  # Basic sanitization (removes non-word characters)
     return message[-1000:]  # Limit input to 1000 characters for safety
 
 dotenv.load_dotenv()
