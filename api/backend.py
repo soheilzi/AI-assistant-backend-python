@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import openai
 from openai import OpenAI
 from flask_cors import CORS
-# import os
+import os
 # import dotenv
 import re
 
@@ -17,6 +17,7 @@ def sanitize_message(message):
 client = OpenAI()
 app = Flask(__name__)
 CORS(app)
+
 
 # Simple route to handle chat messages
 @app.route('/chat', methods=['POST'])
@@ -42,4 +43,5 @@ def chat():
     return jsonify({"response": response_message})
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port, debug=False)
