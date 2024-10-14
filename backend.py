@@ -2,8 +2,8 @@ from flask import Flask, request, jsonify
 import openai
 from openai import OpenAI
 from flask_cors import CORS
-import os
-import dotenv
+# import os
+# import dotenv
 import re
 
 def sanitize_message(message):
@@ -11,10 +11,10 @@ def sanitize_message(message):
     message = re.sub(r'[^\w\s]', ' ', message)  # Basic sanitization (removes non-word characters)
     return message[-1000:]  # Limit input to 1000 characters for safety
 
-dotenv.load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
+# dotenv.load_dotenv()
+# api_key = os.getenv("OPENAI_API_KEY")
 
-client = OpenAI(api_key=api_key)
+client = OpenAI()
 app = Flask(__name__)
 CORS(app)
 
