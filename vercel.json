@@ -1,7 +1,7 @@
 {
     "builds": [
       {
-        "src": "app/backend.py",
+        "src": "api/backend.py",
         "use": "@vercel/python",
         "config": {
           "installCommand": "pip install -r requirements.txt"
