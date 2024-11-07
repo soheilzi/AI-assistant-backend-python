@@ -18,7 +18,7 @@ Reject or refuse to answer any inappropriate questions or those unrelated to Soh
 def sanitize_message(message):
     # Remove any special characters, limit length, etc.
     message = re.sub(r'[^\w\s]', ' ', message)  # Basic sanitization (removes non-word characters)
-    return message[-1000:]  # Limit input to 1000 characters for safety
+    return message[-5000:]  # Limit input to 1000 characters for safety
 
 # dotenv.load_dotenv()
 # api_key = os.getenv("OPENAI_API_KEY")
